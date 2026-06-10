@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programação | Arthur Reis</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--red:#E24B4A;--red-dark:#A32D2D;--bg:#0a0a0a;--bg2:#111;--bg3:#1a1a1a;--text:#f0f0f0;--text2:#aaa;--border:rgba(226,75,74,0.25)}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+canvas#particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+section{position:relative;z-index:1}
+a{color:inherit;text-decoration:none}
+
+.site-nav{position:fixed;top:0;left:0;width:100%;z-index:50;padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,.75);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.site-nav .nav-logo{font-family:'Bebas Neue',cursive;font-size:1.6rem;color:var(--red);letter-spacing:2px}
+.site-nav ul{list-style:none;display:flex;gap:2rem}
+.site-nav ul a{font-size:.88rem;color:var(--text2);transition:color .3s;letter-spacing:.5px}
+.site-nav ul a:hover,.site-nav ul a.active{color:var(--red)}
+@media(max-width:600px){.site-nav ul{gap:1.1rem}.site-nav ul a{font-size:.8rem}}
+
+.section{padding:6rem 2rem;min-height:100vh;display:flex;align-items:center}
+.section-inner{max-width:1100px;margin:0 auto;width:100%}
+.section-title{font-family:'Bebas Neue',cursive;font-size:clamp(2.5rem,6vw,4rem);margin-bottom:1rem;line-height:1}
+.section-desc{color:var(--text2);font-size:1rem;max-width:600px;line-height:1.7;margin-bottom:3rem}
+
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.75rem;transition:all .3s;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(226,75,74,.06),transparent);opacity:0;transition:.3s}
+.card:hover::before{opacity:1}
+.card:hover{border-color:var(--red);transform:translateY(-5px);box-shadow:0 10px 30px rgba(226,75,74,.15)}
+.card-icon{font-size:2rem;margin-bottom:1rem;color:var(--red)}
+.card-title{font-size:1.1rem;font-weight:500;margin-bottom:.5rem}
+.card-desc{color:var(--text2);font-size:.88rem;line-height:1.6}
+.card-glow{position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(226,75,74,.08) 0%,transparent 60%);opacity:0;transition:.3s;pointer-events:none}
+.card:hover .card-glow{opacity:1}
+@media(max-width:480px){.cards-grid{grid-template-columns:1fr}}
+
+footer{padding:2.5rem 2rem;border-top:1px solid var(--border);text-align:center;position:relative;z-index:1}
+footer p{color:var(--text2);font-size:.9rem}
+footer span{color:var(--red)}
+
+#backTop{position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;background:var(--red);border:none;border-radius:50%;color:#fff;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:99;opacity:0;pointer-events:none;transition:all .3s;transform:translateY(20px)}
+#backTop.show{opacity:1;pointer-events:all;transform:translateY(0)}
+#backTop:hover{background:var(--red-dark);transform:translateY(-3px)}
+
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+<canvas id="particles"></canvas>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">Reis</a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="sobre.html">Sobre</a></li>
+    <li><a href="musica.html">Música</a></li>
+    <li><a href="programacao.html" class="active">Programação</a></li>
+    <li><a href="habilidades.html">Habilidades</a></li>
+  </ul>
+</nav>
+
+<section id="programacao" class="section">
+  <div class="section-inner fade-in">
+    <h2 class="section-title"><i class="bi bi-code-slash"></i> Programação</h2>
+    <p class="section-desc">A programação me permite ajudar pessoas e resolver os meus problemas do dia a dia. Afinal, que jovem não gosta de saber programar?</p>
+    <div class="cards-grid">
+      <div class="card"><div class="card-glow"></div><div class="card-icon"><i class="bi bi-file-earmark-code"></i></div><div class="card-title">HTML</div><div class="card-desc">Estrutura semântica e acessível para a web moderna, com foco em boas práticas.</div></div>
+      <div class="card"><div class="card-glow"></div><div class="card-icon"><i class="bi bi-palette"></i></div><div class="card-title">CSS</div><div class="card-desc">Estilos elegantes, animações fluidas e layouts responsivos com Grid e Flexbox.</div></div>
+      <div class="card"><div class="card-glow"></div><div class="card-icon"><i class="bi bi-lightning-charge-fill"></i></div><div class="card-title">JavaScript</div><div class="card-desc">Interatividade e lógica dinâmica para criar experiências digitais envolventes.</div></div>
+      <div class="card"><div class="card-glow"></div><div class="card-icon"><i class="bi bi-globe"></i></div><div class="card-title">Desenvolvimento Web</div><div class="card-desc">Aplicações completas do front ao back, pensando sempre na experiência do usuário.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><span>Arthur Reis</span> | Músico & Programador</p>
+</footer>
+<button id="backTop" onclick="scrollToTop()"><i class="bi bi-arrow-up"></i></button>
+
+<script>
+const canvas=document.getElementById('particles');const ctx=canvas.getContext('2d');let W,H,particles=[];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
+resize();window.addEventListener('resize',resize);
+function Particle(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.4;this.vy=(Math.random()-.5)*.4;this.r=Math.random()*2+.5;this.a=Math.random()*.5+.1}
+for(let i=0;i<90;i++)particles.push(new Particle());
+function drawParticles(){ctx.clearRect(0,0,W,H);particles.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=`rgba(226,75,74,${p.a})`;ctx.fill()});particles.forEach((a,i)=>{particles.slice(i+1).forEach(b=>{const d=Math.hypot(a.x-b.x,a.y-b.y);if(d<120){ctx.beginPath();ctx.strokeStyle=`rgba(226,75,74,${.12*(1-d/120)})`;ctx.lineWidth=.5;ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}})});requestAnimationFrame(drawParticles)}
+drawParticles();
+const backTop=document.getElementById('backTop');
+window.addEventListener('scroll',()=>{backTop.classList.toggle('show',window.scrollY>400)});
+function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'})}
+const fadeObserver=new IntersectionObserver(entries=>{entries.forEach(e=>e.target.classList.toggle('visible',e.isIntersecting))},{threshold:0.15});
+document.querySelectorAll('.fade-in').forEach(el=>fadeObserver.observe(el));
+</script>
+</body>
+</html>
