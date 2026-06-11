@@ -48,6 +48,14 @@ footer span{color:var(--red)}
 
 .fade-in{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
+.social-card-wrap{display:flex;justify-content:center;margin-top:2rem}
+.social-card{display:inline-flex;align-items:center;gap:1rem;background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1rem 1.4rem;transition:all .3s;text-decoration:none}
+.social-card:hover{border-color:var(--red);transform:translateY(-3px)}
+.social-avatar{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.social-info{display:flex;flex-direction:column;gap:.15rem}
+.social-name{font-size:.95rem;font-weight:500;color:var(--text)}
+.social-sub{font-size:.82rem;color:var(--text2)}
+.social-btn{display:inline-block;background:var(--red);color:#fff;font-size:.78rem;font-weight:600;letter-spacing:1px;padding:.3rem .85rem;border-radius:6px;text-transform:uppercase;margin-top:.35rem;width:fit-content}
 </style>
 </head>
 <body>
@@ -73,6 +81,18 @@ footer span{color:var(--red)}
       <div class="card"><div class="card-glow"></div><div class="card-icon"><i class="bi bi-palette"></i></div><div class="card-title">CSS</div><div class="card-desc">Estilos elegantes, animações fluidas e layouts responsivos com Grid e Flexbox.</div></div>
       <div class="card"><div class="card-glow"></div><div class="card-icon"><i class="bi bi-lightning-charge-fill"></i></div><div class="card-title">JavaScript</div><div class="card-desc">Interatividade e lógica dinâmica para criar experiências digitais envolventes.</div></div>
       <div class="card"><div class="card-glow"></div><div class="card-icon"><i class="bi bi-globe"></i></div><div class="card-title">Desenvolvimento Web</div><div class="card-desc">Aplicações completas do front ao back, pensando sempre na experiência do usuário.</div></div>
+    </div>
+    <div class="social-card-wrap">
+      <a href="https://github.com/ArthurReisDC" target="_blank" rel="noopener noreferrer" class="social-card">
+        <div class="social-avatar" style="background:#24292e">
+          <i class="bi bi-github" style="font-size:1.5rem;color:#fff"></i>
+        </div>
+        <div class="social-info">
+          <span class="social-name">ArthurReisDC</span>
+          <span class="social-sub">Perfil no GitHub</span>
+          <span class="social-btn">Ver Perfil</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
